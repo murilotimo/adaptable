@@ -85,20 +85,16 @@ class adaptablesettings extends renderer{
 
 
         // Colours **************************************************.
+//      $this->newOption('colorpicker', 'bgcolor', 'Background Color', 'Select the background color to be used if layout style is Boxed with Background Color.','#CCCCCC');        
+
         $this->newTab(get_string('colorsettings', 'theme_adaptable'), get_string('colorsettings', 'theme_adaptable'), 'paint-brush');
 
-        $this->newOption('colorpicker', 'settingsmaincolors', '', '','#CCCCCC', null, null);
+        // Main Color
+        $this->newOption('colorpicker', 'maincolor', get_string('maincolor', 'theme_adaptable'), get_string('maincolordesc', 'theme_adaptable'),'#009688', null, null);
 
 
 
 
-
-
-    // Main colors heading.
-    $name = 'theme_adaptable/settingsmaincolors';
-    $heading = get_string('settingsmaincolors', 'theme_adaptable');
-    $setting = new admin_setting_heading($name, $heading, '');
-    $temp->add($setting);
 
 
 
