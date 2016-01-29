@@ -1881,4 +1881,17 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
         }
         return $content;
     }
+
+    /**
+    * Internal implementation of user image rendering.
+    *
+    * @param user_picture $userpicture
+    * @return string
+    */
+    protected function render_user_picture(\user_picture $userpicture) {
+        if ($this->page->pagetype == 'mod-forum-discuss') {
+            $userpicture->size = 1;
+        }
+        return parent::render_user_picture($userpicture);
+    }
 }
