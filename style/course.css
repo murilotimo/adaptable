@@ -106,12 +106,20 @@ h3.sectionname {
     color: [[setting:sectionheadingcolor]];
     font-size: 20px;
     margin-bottom: 20px;
-    margin-top: -12px;
     padding: 3px 10px;
 }
 
 .section .activity .mod-indent-outer {
     padding-left: 23px;
+}
+
+/* Alter nav on single-section for better onetopic course format support */
+.single-section .nav {
+    margin-bottom: 0px;
+}
+
+.single-section .nav-tabs {
+    border-bottom: none;
 }
 
 .path-course-view .completionprogress {

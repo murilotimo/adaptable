@@ -205,7 +205,7 @@ div.signuppanel h2 {
     margin-bottom: 0px;
     background: transparent;
     padding-top: 0px;
-    min-height: 82px;
+    min-height: [[setting:pageheaderheight]];
     color: [[setting:headertextcolor2]];
 }
 
@@ -217,18 +217,24 @@ div.signuppanel h2 {
     max-width: 250px;
 }
 
-#titlecontainer {
-    padding-top: 10px;
-}
 
+#titlecontainer,
 #titlecontainer a,
+#titlecontainer span,
 #titlecontainer a p {
+    position:relative;
+    display: inline;
     font-family: [[setting:fonttitlename]], sans-serif !important;
     font-size: [[setting:fonttitlesize]] !important;
     font-weight: [[setting:fonttitleweight]] !important;
     color: [[setting:fonttitlecolor]] !important;
-    padding-top: 10px;
+    padding-top: [[setting:sitetitlepaddingtop]];
+    padding-left: [[setting:sitetitlepaddingleft]];
     line-height: 100%;
+}
+
+#titlecontent {
+    padding-top:50px;
 }
 
 #titlecontainer a:hover {
@@ -246,14 +252,18 @@ div.signuppanel h2 {
     margin-left: 0px;
 }
 
-#coursetitle {
-    font-family: [[setting:fonttitlename]], sans-serif !important;
-    color: [[setting:fonttitlecolor]] !important;
-    font-size: [[setting:fonttitlesize]] !important;
+#coursetitle,
+#coursetitle a,
+#coursetitle a:hover,
+#coursetitle span {
+    position:relative;
+    font-family: [[setting:fonttitlenamecourse]], sans-serif !important;
+    color: [[setting:fonttitlecolorcourse]] !important;
+    font-size: [[setting:fonttitlesizecourse]] !important;
     line-height: normal;
-    font-weight: [[setting:fonttitleweight]];
-    padding-left: 15px;
+    font-weight: [[setting:fonttitleweightcourse]];
     padding-top: [[setting:coursetitlepaddingtop]];
+    padding-left: [[setting:coursetitlepaddingleft]];
     max-width: [[setting:coursetitlemaxwidth]];
     white-space: nowrap;
     overflow: hidden;
@@ -287,7 +297,7 @@ div.signuppanel h2 {
 
 .socialbox a {
     color: [[setting:headertextcolor2]];
-    font-size: [[setting:socialsize]]px;
+    font-size: [[setting:socialsize]];
     padding-left: 10px;
 }
 
@@ -991,9 +1001,9 @@ input[type="radio"], input[type="checkbox"] {
         width: auto;
     }
 
-    .socialbox a {
+    .socialbox, .socialbox a {
         color: [[setting:headertextcolor2]];
-        font-size: [[setting:socialsizemobile]]px;
+        font-size: [[setting:socialsizemobile]];
         padding-left: 10px;
     }
 
@@ -1283,7 +1293,7 @@ div.no-overflow, .yui3-datatable {
 
 .searchbox {
   float: right;
-  padding-top: 32px;
+  padding-top: [[setting:searchboxpaddingtop]];
 }
 
 .greybox {

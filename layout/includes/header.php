@@ -38,8 +38,6 @@ $left = (!right_to_left());  // To know if to add 'pull-right' and 'desktop-firs
 
 $hasmiddle = $PAGE->blocks->region_has_content('middle', $OUTPUT);
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
-$haslogo = (!empty($PAGE->theme->settings->logo));
-$hastitle = (!empty($PAGE->theme->settings->sitetitletext));
 $enableheadingtitle = $PAGE->theme->settings->enableheading;
 
 if ($COURSE->id != 1) {
@@ -380,41 +378,17 @@ echo $OUTPUT->get_top_menus();
     </div>
 </div>
 <div id="page-header" class="clearfix container">
-        <?php if ($haslogo) { ?>
-            <div id="logocontainer">
-                <a href="<?php p($CFG->wwwroot) ?>">
-                    <?php echo "<img src='".$PAGE->theme->setting_file_url('logo', 'logo')."' alt='logo' id='logo' />";
-                    echo "</a></div>";
-} else if ($hastitle) {
-?>
-            <div id="titlecontainer">
-                <a href="<?php p($CFG->wwwroot) ?>">
-                    <?php echo $PAGE->theme->settings->sitetitletext; ?>
-                </a>
-            </div>
-        <?php
-}
 
-if (isset($PAGE) && !$PAGE->theme->settings->sitetitle) {
-        $header = theme_adaptable_remove_site_fullname($PAGE->heading);
-        $PAGE->set_heading($header);
-}
-?>
-
-<div id="coursetitle" class="pull-left">
-<?php
-    echo $PAGE->heading;
-?>
-    </div>
+<?php echo $OUTPUT->get_logo_title(); ?>
 
 <?php
-if (!empty($PAGE->theme->settings->socialset)) {
+if ($PAGE->theme->settings->socialorsearch == 'social') {
     echo $OUTPUT->socialicons();
 }
 ?>
 
 <?php
-if (empty($PAGE->theme->settings->socialset)) { ?>
+if ($PAGE->theme->settings->socialorsearch == 'search') { ?>
         <div class="searchbox">
             <form action="<?php p($CFG->wwwroot) ?>/course/search.php">
                 <label class="hidden" for="search-1" style="display: none;">Search iCity</label>

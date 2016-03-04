@@ -168,4 +168,47 @@
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Course Title Font Name.
+    $name = 'theme_adaptable/fonttitlenamecourse';
+    $title = get_string('fonttitlenamecourse', 'theme_adaptable');
+    $description = get_string('fonttitlenamecoursedesc', 'theme_adaptable');
+    $default = 'Audiowide';
+    $choices = $fontlist;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Course Title Font size.
+    $name = 'theme_adaptable/fonttitlesizecourse';
+    $title = get_string('fonttitlesizecourse', 'theme_adaptable');
+    $description = get_string('fonttitlesizecoursedesc', 'theme_adaptable');
+    $setting = new admin_setting_configtext($name, $title, $description, '48px');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Course Title Font size.
+    $name = 'theme_adaptable/fonttitlesizecourse';
+    $title = get_string('fonttitlesizecourse', 'theme_adaptable');
+    $description = get_string('fonttitlesizecoursedesc', 'theme_adaptable');
+    $setting = new admin_setting_configtext($name, $title, $description, '48px');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Course Font weight.
+    $name = 'theme_adaptable/fonttitleweightcourse';
+    $title = get_string('fonttitleweightcourse', 'theme_adaptable');
+    $description = get_string('fonttitleweightcoursedesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, 400, $from100to900);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Course font color.
+    $name = 'theme_adaptable/fonttitlecolorcourse';
+    $title = get_string('fonttitlecolorcourse', 'theme_adaptable');
+    $description = get_string('fonttitlecolorcoursedesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ffffff', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     $ADMIN->add('theme_adaptable', $temp);

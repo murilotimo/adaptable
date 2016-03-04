@@ -416,7 +416,8 @@ $string['mysitessortoverridefielddesc'] = 'Comma delimited list of profile field
 
 $string['mysitessortoverrideoff'] = 'Display all enrolled courses in single flat list';
 $string['mysitessortoverridestrings'] = 'Display enrolled containing strings in first list, others in sub menu';
-$string['mysitessortoverrideprofilefields'] = 'Display courses found in profile fileds in first list, others in sub menu';
+$string['mysitessortoverrideprofilefields'] = 'Display courses found in profile fields in first list, others in sub menu';
+$string['mysitessortoverrideprofilefieldscohort'] = 'Display courses found in profile fields + cohorts in first list, others in sub menu';
 
 $string['mysitesmaxlength'] = 'My Courses Max Length';
 $string['mysitesmaxlengthdesc'] = 'Adjust the max length of coursenames in the My Courses dropdown to optimise for your font.';
@@ -636,6 +637,18 @@ $string['fonttitleweightdesc'] = 'Set the font weight used in the title site. En
 $string['fonttitlesize'] = 'Site title font size';
 $string['fonttitlesizedesc'] = 'Site title font size used in site. Enter a decimal value in pixels: 24px';
 
+$string['fonttitlenamecourse'] = 'Course title font';
+$string['fonttitlenamecoursedesc'] = 'Select the default font or <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a> used in course titles.';
+
+$string['fonttitlecolorcourse'] = 'Course title font colour';
+$string['fonttitlecolorcoursedesc'] = 'Set the colour of the course title font in the theme, use html hex code.';
+
+$string['fonttitleweightcourse'] = 'Course title font weight';
+$string['fonttitleweightcoursedesc'] = 'Set the font weight used in the site title. Enter a value from 100 to 900 depending the font selected.';
+
+$string['fonttitlesizecourse'] = 'Course title font size';
+$string['fonttitlesizecoursedesc'] = 'Course title font size used in site. Enter a decimal value in pixels: 24px';
+
 $string['fontsubset'] = 'Google Fonts subset';
 $string['fontsubsetdesc'] = 'Select other character subset than latin to be applied to all the fonts. Latin subset is already included by default.';
 
@@ -698,13 +711,49 @@ $string['logintextbutton'] = 'Log In';
 // Header ***********************************************************.
 $string['headersettings'] = 'Header';
 $string['headersettingsheading'] = 'Customize the header of this theme. See the layout <a href="./../theme/adaptable/pix/layout.png" target="_blank"> here</a>';
-$string['headerdesc'] = 'Display alert boxes to warn users of actions, or provide notices to all users. Control the navbars that appear on the site.';
+$string['headerdesc'] = 'Upload your favicon, logo, set login form in header, adjust titles in header.<br />
+    <strong>You can set font size and styles for titles in the "fonts" settings page.</strong>';
 
 $string['enableheading'] = 'Header course title';
 $string['enableheadingdesc'] = 'Set the mode to display the course title in the header.';
 
+$string['sitetitlecoursesdisabled'] = 'Disabled - only show course titles in course pages';
+$string['sitetitlecoursesenabled'] = 'Enabled - show site title and course titles in course pages';
+
+$string['sitetitlepaddingtop'] = 'Site Title Padding Top';
+$string['sitetitlepaddingtopdesc'] = 'Set padding above site title to adjust position';
+
+$string['sitetitlepaddingleft'] = 'Site Title Padding Left';
+$string['sitetitlepaddingleftdesc'] = 'Set padding left of site title to adjust position';
+
+$string['coursetitlepaddingtop'] = 'Course Title Padding Top';
+$string['coursetitlepaddingtopdesc'] = 'Set padding above course title to adjust position';
+
+$string['coursetitlepaddingleft'] = 'Course Title Padding Left';
+$string['coursetitlepaddingleftdesc'] = 'Set padding left of course title to adjust position';
+
+$string['coursetitlemaxwidth'] = 'Course Title Maximum Width';
+$string['coursetitlemaxwidthdesc'] = 'Set the maximum width of the course title area';
+
+$string['pageheaderheight'] = 'Page Header Height';
+$string['pageheaderheightdesc'] = 'Set the height of the main header area (containing logo and titles)';
+
 $string['breadcrumbtitle'] = 'Breadcrumb course name';
 $string['breadcrumbtitledesc'] = 'Set the mode to display the course title in the breadcrumb.';
+
+$string['socialorsearch'] = 'Use Search Box or Social Icons';
+$string['socialorsearchdesc'] = 'You can set the theme to either display social icons or a search box in the header. <br />
+    <strong>You can set social icons under the "header social" settings page</strong>.';
+
+$string['socialorsearchsocial'] = 'Display social icons in header';
+$string['socialorsearchsearch'] = 'Display search box in header';
+
+$string['searchboxpaddingtop'] = 'Search box padding top';
+$string['searchboxpaddingtopdesc'] = 'Set padding above search box (if being used instead of social icons) <br />
+    <strong>Note: padding for social icons can be set in the "Header Social" settings page</strong>.';
+
+$string['breadcrumbtitlefullname'] = 'Course Full Name';
+$string['breadcrumbtitleshortname'] = 'Course Short Name / Code';
 
 $string['usernav'] = 'Header User';
 $string['usernavheading'] = 'Customize dropdown menu for users profile.';
@@ -730,6 +779,10 @@ $string['loadingcolordesc'] = 'The loading bar colour in the top of the page';
 
 $string['sitetitle'] = 'Display site title';
 $string['sitetitledesc'] = 'Show / Hide site title';
+
+$string['sitetitleoff'] = 'Disable site title';
+$string['sitetitledefault'] = 'Use Moodle site title (site name)';
+$string['sitetitlecustom'] = 'Use custom site title (enter in text field below)';
 
 $string['sitetitletext'] = 'Site title';
 $string['sitetitletextdesc'] = 'Site title displayed in the header';
@@ -785,12 +838,6 @@ $string['covhidebuttondesc'] = 'Set this to hide the course button when Coventry
 
 $string['frontpagerendererdefaultimage'] = 'Default course image';
 $string['frontpagerendererdefaultimagedesc'] = 'The default image to use when no course image is found, (only applies for Tiles w/ overlay)';
-
-$string['coursetitlemaxwidth'] = 'Course Title Maximum Width';
-$string['coursetitlemaxwidthdesc'] = 'Set the maximum width of the course title area';
-
-$string['coursetitlepaddingtop'] = 'Course Title Padding Top';
-$string['coursetitlepaddingtopdesc'] = 'Set padding above course title';
 
 $string['tilesshowcontacts'] = 'Show course contacts';
 $string['tilesshowcontactsdesc'] = 'Show / hide course contacts';
@@ -898,7 +945,7 @@ $string['hidealertsmobiledesc'] = 'Hide will remove alerts on mobile devices';
 $string['hidesocialmobile'] = 'Hide Social Icons (if in use) on mobile';
 $string['hidesocialmobiledesc'] = 'Hide will remove social icons on mobile devices';
 
-$string['hidecoursetitlemobile'] = 'Hide Course Title on mobile';
+$string['hidecoursetitlemobile'] = 'Hide Course / Site Title on mobile';
 $string['hidecoursetitlemobiledesc'] = 'Hide the course title AND site title on mobile devices';
 
 $string['socialboxpaddingtopmobile'] = 'Set top padding of social container on mobile';
@@ -1137,9 +1184,6 @@ http://twitter.com/|Twitter|fa-twitter-square
 http://instagram.com|Instagram|fa-instagram
 
 For reference you can find the full list of <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome Icons Here</a></pre>';
-
-$string['socialset'] = 'Add social icons and hide search bar';
-$string['socialsetdesc'] = 'Check this box to hide the search bar and add social icons in the same location instead.';
 
 $string['socialsize'] = 'Set the font size of the social icons';
 $string['socialsizemobile'] = 'Set the font size of the social icons on Mobile';

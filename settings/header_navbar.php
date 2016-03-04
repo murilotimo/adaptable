@@ -33,7 +33,7 @@ format_text(get_string('navbardesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 $name = 'theme_adaptable/navbarcachetime';
 $title = get_string('navbarcachetime', 'theme_adaptable');
 $description = get_string('navbarcachetimedesc', 'theme_adaptable');
-$setting = new admin_setting_configselect($name, $title, $description, '20', $from0to60inc5);
+$setting = new admin_setting_configselect($name, $title, $description, '0', $from0to60inc5);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
@@ -95,6 +95,7 @@ $choices = array(
     'off' => get_string('mysitessortoverrideoff', 'theme_adaptable'),
     'strings' => get_string('mysitessortoverridestrings', 'theme_adaptable'),
     'profilefields' => get_string('mysitessortoverrideprofilefields', 'theme_adaptable'),
+    'profilefieldscohort' => get_string('mysitessortoverrideprofilefieldscohort', 'theme_adaptable')
 );
 $setting = new admin_setting_configselect($name, $title, $description, 'off', $choices);
 $setting->set_updatedcallback('theme_reset_all_caches');

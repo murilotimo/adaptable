@@ -533,7 +533,7 @@ EOT;
         if ($classes == 'redirectmessage') {
             $type = 'alert alert-block alert-info';
         }
-        return "<div class=\"$type\">$message</div>";
+        return '<div class="' . $type . '">' . $message . '</div>';
     }
 
     /**
@@ -999,9 +999,15 @@ EOT;
 
                 $overridetype = $PAGE->theme->settings->mysitessortoverride;
                 $overridelist = $PAGE->theme->settings->mysitessortoverridefield;
-                if ($PAGE->theme->settings->mysitessortoverride == 'profilefields') {
+
+                if ($overridetype == 'profilefields' || $overridetype == 'profilefieldscohort') {
                     $overridelist = $this->get_profile_field_contents($overridelist);
+
+                    if ($overridetype == 'profilefieldscohort') {
+                        $overridelist = array_merge($this->get_cohort_enrollments(), $overridelist);
+                    }
                 }
+
                 if ($PAGE->theme->settings->mysitessortoverride == 'strings') {
                     $overridelist = explode(',', $overridelist);
                 }
@@ -1026,7 +1032,7 @@ EOT;
                                 $branch->add(mb_strimwidth(format_string($course->fullname), 0,  $mysitesmaxlength, '...', 'utf-8'),
                                     new moodle_url('/course/view.php?id='.$course->id), '');
                             } else { // We want to check against array from profile field.
-                                if (($overridetype == 'profilefields' && in_array($course->shortname, $overridelist))
+                                if ((($overridetype == 'profilefields' || $overridetype == 'profilefieldscohort') && in_array($course->shortname, $overridelist))
                                     || ($overridetype == 'strings' && $this->check_if_in_array_string($overridelist, $course->shortname))) {
                                     $icon = '';
                                     $branch->add($icon . mb_strimwidth(format_string($course->fullname), 0,  $mysitesmaxlength, '...', 'utf-8'),
@@ -1113,7 +1119,7 @@ EOT;
             if ($access && !$this->hideinforum()) {
                 $branchtitle = get_string('helptitle', 'theme_adaptable');
                 $branchlabel = '<i class="fa fa-life-ring"></i>'.$branchtitle;
-                $branchurl   = new moodle_url($PAGE->theme->settings->enablehelp);
+                $branchurl   = new moodle_url($PAGE->theme->settings->enablehelp . '" target="' . $PAGE->theme->settings->helptarget);
                 $branchsort  = 10003;
                 $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
             }
@@ -1133,7 +1139,7 @@ EOT;
             if ($access && !$this->hideinforum()) {
                 $branchtitle = get_string('helptitle2', 'theme_adaptable');
                 $branchlabel = '<i class="fa fa-life-ring"></i>'.$branchtitle;
-                $branchurl   = new moodle_url($PAGE->theme->settings->enablehelp2);
+                $branchurl   = new moodle_url($PAGE->theme->settings->enablehelp2 . '" target="' . $PAGE->theme->settings->helptarget);
                 $branchsort  = 10003;
                 $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
             }
@@ -1204,6 +1210,44 @@ EOT;
 
             $custommenu = new custom_menu($custommenuitems);
             $retval .= $this->render_custom_menu($custommenu);
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns html to render logo / title area
+     *
+     * @return string
+     */
+    public function get_logo_title() {
+        global $PAGE, $COURSE, $CFG;
+        $retval = '';
+        $display = $PAGE->theme->settings->sitetitle;
+
+        $div = '<div id="titlecontainer" class="pull-left">';
+        if ($COURSE->id > 1) {
+            $div = '<div id="coursetitle" class="pull-left">';
+        }
+
+        if ($display == 'custom') {
+            $header = theme_adaptable_remove_site_fullname($PAGE->heading);
+            if (empty($header)) {
+                $header = $PAGE->theme->settings->sitetitletext;
+            }
+            $PAGE->set_heading($header);
+        }
+
+        if (!empty($PAGE->theme->settings->logo)) {
+            $retval .= '<div id="logocontainer">';
+            $retval .= "<a href='$CFG->wwwroot'>";
+            $retval .= '<img src=' . $PAGE->theme->setting_file_url('logo', 'logo') . ' alt="logo" id="logo" />';
+            $retval .= '</a></div>';
+        }
+
+        if ($display != 'disabled') {
+            $retval .= $div;
+            $retval .= '<span>' . $PAGE->heading . '</span>';
+            $retval .= '</div>';
         }
         return $retval;
     }
@@ -1365,6 +1409,30 @@ EOT;
         $USER->theme_adaptable_menus[$menu] = false;
         $USER->theme_adaptable_menus[$menuttl] = $sessttl;
         return false;
+    }
+
+    /**
+     * Returns list of cohort enrollments
+     *
+     * @return array
+     */
+    public function get_cohort_enrollments() {
+        global $DB, $USER;
+        $userscohorts = $DB->get_records('cohort_members', array('userid' => $USER->id));
+        $courses = array();
+        if ($userscohorts) {
+            $cohortedcourseslist = $DB->get_records_sql('select '
+                    . 'courseid '
+                    . 'from {enrol} '
+                    . 'where enrol = "cohort" '
+                    . 'and customint1 in (?)', array_keys($userscohorts));
+            $cohortedcourses = $DB->get_records_list('course', 'id', array_keys($cohortedcourseslist), null, 'shortname');
+            foreach ($cohortedcourses as $course) {
+                $courses[] = $course->shortname;
+            }
+            return($courses);
+        }
+
     }
 
     /**

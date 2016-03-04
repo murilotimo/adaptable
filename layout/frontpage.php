@@ -29,7 +29,6 @@ require_once(dirname(__FILE__) . '/includes/header.php');
 $left = theme_adaptable_get_block_side();
 
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
-$haslogo = (!empty($PAGE->theme->settings->logo));
 
 if (!empty($PAGE->theme->settings->sliderenabled)) {
     echo $OUTPUT->get_frontpage_slider();

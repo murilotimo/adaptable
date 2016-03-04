@@ -30,20 +30,13 @@
     $temp->add(new admin_setting_heading('theme_adaptable_header', get_string('headersettingsheading', 'theme_adaptable'),
     format_text(get_string('headerdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
-    // Enable Site title.
-    $name = 'theme_adaptable/sitetitle';
-    $title = get_string('sitetitle', 'theme_adaptable');
-    $description = get_string('sitetitledesc', 'theme_adaptable');
+    // Enable front page login form in header.
+    $name = 'theme_adaptable/frontpagelogin';
+    $title = get_string('frontpagelogin', 'theme_adaptable');
+    $description = get_string('frontpagelogindesc', 'theme_adaptable');
+    $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Site title.
-    $name = 'theme_adaptable/sitetitletext';
-    $title = get_string('sitetitletext', 'theme_adaptable');
-    $description = get_string('sitetitletextdesc', 'theme_adaptable');
-    $default = '';
-    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $temp->add($setting);
 
     // Logo.
@@ -63,6 +56,27 @@
     $temp->add($setting);
 
     // Display Course title in the header.
+    $name = 'theme_adaptable/sitetitle';
+    $title = get_string('sitetitle', 'theme_adaptable');
+    $description = get_string('sitetitledesc', 'theme_adaptable');
+    $radchoices = array(
+        'disabled' => get_string('sitetitleoff', 'theme_adaptable'),
+        'default' => get_string('sitetitledefault', 'theme_adaptable'),
+        'custom' => get_string('sitetitlecustom', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'default', $radchoices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Site title.
+    $name = 'theme_adaptable/sitetitletext';
+    $title = get_string('sitetitletext', 'theme_adaptable');
+    $description = get_string('sitetitletextdesc', 'theme_adaptable');
+    $default = '';
+    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+    $temp->add($setting);
+
+    // Display Course title in the header.
     $name = 'theme_adaptable/enableheading';
     $title = get_string('enableheading', 'theme_adaptable');
     $description = get_string('enableheadingdesc', 'theme_adaptable');
@@ -75,23 +89,82 @@
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Site Title Padding Top.
+    $name = 'theme_adaptable/sitetitlepaddingtop';
+    $title = get_string('sitetitlepaddingtop', 'theme_adaptable');
+    $description = get_string('sitetitlepaddingtopdesc', 'theme_adaptable');
+    $setting = new admin_setting_configtext($name, $title, $description, '0px');
+    $setting = new admin_setting_configselect($name, $title, $description, '0px', $from0to20px);
+    $temp->add($setting);
+
+    // Site Title Padding Left.
+    $name = 'theme_adaptable/sitetitlepaddingleft';
+    $title = get_string('sitetitlepaddingleft', 'theme_adaptable');
+    $description = get_string('sitetitlepaddingleftdesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, '0px', $from0to20px);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Course Title Padding Top.
+    $name = 'theme_adaptable/coursetitlepaddingtop';
+    $title = get_string('coursetitlepaddingtop', 'theme_adaptable');
+    $description = get_string('coursetitlepaddingtopdesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, '0px', $from0to20px);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Course Title Padding Left.
+    $name = 'theme_adaptable/coursetitlepaddingleft';
+    $title = get_string('coursetitlepaddingleft', 'theme_adaptable');
+    $description = get_string('coursetitlepaddingleftdesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, '0px', $from0to20px);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    $name = 'theme_adaptable/coursetitlemaxwidth';
+    $title = get_string('coursetitlemaxwidth', 'theme_adaptable');
+    $description = get_string('coursetitlemaxwidthdesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, '50%', $from35to50percent);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Page Header Height.
+    $name = 'theme_adaptable/pageheaderheight';
+    $title = get_string('pageheaderheight', 'theme_adaptable');
+    $description = get_string('pageheaderheightdesc', 'theme_adaptable');
+    $setting = new admin_setting_configtext($name, $title, $description, '72px');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     // Display Course title in the breadcrumb.
     $name = 'theme_adaptable/breadcrumbtitle';
     $title = get_string('breadcrumbtitle', 'theme_adaptable');
     $description = get_string('breadcrumbtitledesc', 'theme_adaptable');
     $radchoices = array(
-        'fullname' => "Course Full Name",
-        'shortname' => "Course Short Name"
+        'fullname' => get_string('breadcrumbtitlefullname', 'theme_adaptable'),
+        'shortname' => get_string('breadcrumbtitlefullname', 'theme_adaptable')
     );
     $setting = new admin_setting_configselect($name, $title, $description, 'shortname', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    $name = 'theme_adaptable/frontpagelogin';
-    $title = get_string('frontpagelogin', 'theme_adaptable');
-    $description = get_string('frontpagelogindesc', 'theme_adaptable');
-    $default = true;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    // Choose to display search box or social icons.
+    $name = 'theme_adaptable/socialorsearch';
+    $title = get_string('socialorsearch', 'theme_adaptable');
+    $description = get_string('socialorsearchdesc', 'theme_adaptable');
+    $radchoices = array(
+        'social' => get_string('socialorsearchsocial', 'theme_adaptable'),
+        'search' => get_string('socialorsearchsearch', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'social', $radchoices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Search box padding top.
+    $name = 'theme_adaptable/searchboxpaddingtop';
+    $title = get_string('searchboxpaddingtop', 'theme_adaptable');
+    $description = get_string('searchboxpaddingtopdesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, '16px', $from0to30px);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
