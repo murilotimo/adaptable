@@ -110,6 +110,7 @@ $string['settingsbreadcrumbcolors'] = 'Breadcrumb Colours';
 $string['settingsfootercolors'] = 'Footer Colours';
 $string['settingsfonts'] = 'Fonts';
 $string['analyticssettings'] = 'Analytics';
+$string['loginpagesettings'] = 'Alternate Login Page';
 
 
 // Admin Menu Strings.
@@ -1273,6 +1274,10 @@ $string['genericsettingsdescription'] = 'Here you can find various settings to a
 
 $string['jssection'] = 'Javascript Section';
 $string['jssectiondesc'] = 'Add javascript code to the site.';
+
+// Alternate Login Page
+$string['loginpagesettingsheading'] = 'Create your own customised login page';
+$string['loginpagesettingsdescription'] = 'Here you can find various settings to create your own login page.';
 
 
 
