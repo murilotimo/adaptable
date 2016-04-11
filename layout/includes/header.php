@@ -24,8 +24,6 @@
  *
  */
 
-
-
 theme_adaptable_initialise_zoom($PAGE);
 $setzoom = theme_adaptable_get_zoom();
 
@@ -39,7 +37,8 @@ $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 $enableheadingtitle = $PAGE->theme->settings->enableheading;
 
 // Fixed header.
-$fixedheader = $PAGE->theme->settings->stickynavbar;
+// $fixedheader = $PAGE->theme->settings->stickynavbar;
+$fixedheader = false;
 
 if ($COURSE->id != 1) {
     switch($enableheadingtitle) {
@@ -52,7 +51,7 @@ if ($COURSE->id != 1) {
     }
 }
 
-// Get the fonts.
+// Get the fonts name.
 $fontname = str_replace(" ", "+", $PAGE->theme->settings->fontname);
 $fontheadername = str_replace(" ", "+", $PAGE->theme->settings->fontheadername);
 $fonttitlename = str_replace(" ", "+", $PAGE->theme->settings->fonttitlename);
@@ -92,6 +91,7 @@ if (right_to_left()) {
     $regionbsid = 'region-bs-main-and-pre';
 }
 
+// Social icons class.
 $showicons = "";
 $showicons = $PAGE->theme->settings->blockicons;
 if ($showicons == 1) {
@@ -107,6 +107,7 @@ if ($defaultview == 1 && $setfull == "") {
     $setfull = "fullin";
 }
 
+// HTML header.
 echo $OUTPUT->doctype();
 ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
@@ -117,11 +118,13 @@ echo $OUTPUT->doctype();
     <link rel="stylesheet" href="<?php p($CFG->wwwroot) ?>/theme/adaptable/style/font-awesome.min.css">
 
 <?php
+
+// Load Google Fonts.
 if (!empty($fontname) && $fontname != 'default') {
 ?>
-        <link href='https://fonts.googleapis.com/css?family=<?php echo $fontname.$fontweight.$fontssubset; ?>'
-        rel='stylesheet'
-        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=<?php echo $fontname.$fontweight.$fontssubset; ?>'
+    rel='stylesheet'
+    type='text/css'>
 <?php
 }
 ?>
@@ -156,19 +159,23 @@ if (!empty($fonttitlename)  && $fonttitlename != 'default') {
 <div id="page" class="container-fluid <?php echo "$setfull $showiconsclass"; ?>">
 
 <?php
+// Display alerts.
 echo $OUTPUT->get_alert_messages();
 ?>
 
-<header id="page-header-wrapper"
 
 <?php
 // Fixed header.
 if ($fixedheader) {
 ?>
- style="position: fixed;"
+    <header id="page-header-wrapper" style="position: fixed;">
+<?php
+} else {
+?>
+    <header id="page-header-wrapper">
 <?php
 }
-?>>
+?>
 
     <div id="above-header">
         <div class="clearfix container userhead">
@@ -178,6 +185,7 @@ if ($fixedheader) {
 
             <div class="headermenu row">
 <?php
+// Top login form.
 if (!isloggedin() || isguestuser()) {
     echo $OUTPUT->page_heading_menu();
     if (!empty($PAGE->theme->settings->frontpagelogin)) { ?>
@@ -188,6 +196,7 @@ if (!isloggedin() || isguestuser()) {
         </form>
 <?php
     } else {
+        // Login button.
 ?>
         <form action="<?php p($CFG->wwwroot) ?>/login/index.php" method="post">
             <button class="btn-login" type="submit">
@@ -493,7 +502,6 @@ if (isloggedin()) {
 }
 ?>
 </header>
-
 
 <?php
     echo $OUTPUT->get_news_ticker();

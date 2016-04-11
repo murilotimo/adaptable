@@ -18,19 +18,14 @@
  * Version details
  *
  * @package    theme_adaptable
- * @copyright 2015 Jeremy Hopkins (Coventry University)
- * @copyright 2015 Fernando Acedo (3-bits.com)
+ * @copyright  2015 Jeremy Hopkins (Coventry University)
+ * @copyright  2015 Fernando Acedo (3-bits.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
 
-// Cache definitions.
-
-$string['cachedef_userdata'] = 'A session cache used to store user specific data.';
-
 
 // General.
-
 $string['choosereadme'] = '
 <div class="clearfix">
 <div class="well">
@@ -61,8 +56,6 @@ $string['choosereadme'] = '
 
 </div>
 </div>';
-
-
 
 $string['pluginname'] = 'Adaptable';
 $string['configtitle'] = 'Adaptable';
@@ -197,6 +190,7 @@ $string['sliderfullscreendesc'] = 'Check this box to make the slider full screen
 
 $string['slideroption2'] = 'Choose Slider Type';
 $string['slideroption2desc'] = 'Choose Slider Type <strong>and then click SAVE</strong> to see color settings for your chosen slider';
+
 $string['slideroption2snippet'] = '<p>Sample HTML for Slider Captions:</p>
 <pre>
 &#x3C;div class=&#x22;span6 col-sm-6&#x22;&#x3E;
@@ -263,15 +257,15 @@ $string['layoutcheckdesc'] = 'Use the tool below to check the number of blocks y
 $string['layoutcount1'] = 'You can set a maximum of ';
 $string['layoutcount2'] = ' block regions. You are currently using: ';
 
+
 // Marketing Blocks & Info Box *************************************.
 $string['marketingsettings'] = 'Marketing Blocks';
 $string['marketingsettingsheading'] = 'Customize the marketing blocks that appear on the front page. See the layout <a href="./../theme/adaptable/pix/layout.png" target="_blank"> here</a>';
-$string['marketingdesc'] = 'There are two full width info boxes witht differing styles you can use.
+$string['marketingdesc'] = 'There are two full width info boxes with differing styles you can use.
 In addition to this there is a layout builder allowing you to decide how many blocks you need and define your own layout, please see the <a href="./../theme/adaptable/README.txt" target="_blank">README</a> file that comes with this theme.';
 
 $string['marketingbuilderheading'] = 'Marketing Block Layout Builder';
-$string['marketingbuilderdesc'] = 'Use the tool below to setup your marketing blocks.
-Once defined the block settings will appear further down the page.';
+$string['marketingbuilderdesc'] = 'Use the tool below to setup your marketing blocks. Once defined the block settings will appear further down the page.';
 
 $string['marketlayoutrow'] = 'Marketing Block Row';
 $string['marketlayoutrowdesc'] = 'Add / set layout for marketing block row on front page';
@@ -315,6 +309,7 @@ Note: BCU style is designed to work with images at top of block.';
 // Footer **********************************************************.
 $string['footersettings'] = 'Footer';
 $string['footersettingsheading'] = 'Set the content that should appear in the footer. See the layout <a href="./../theme/adaptable/pix/layout.png" target="_blank"> here</a> ';
+
 $string['footerdesc'] = 'Control the content that appears in the 4 footer sections of the page.';
 
 $string['showfooterblocks'] = 'Show Footnote Block';
@@ -345,7 +340,6 @@ $string['moodledocsdesc'] = 'Display the Moodle Docs link in the footer.';
 
 
 // NavBar **********************************************************.
-
 $string['stickynavbar'] = 'Sticky Navbar at the top';
 $string['stickynavbardesc'] = 'Stick the Navbar at the top of the screen when scrolling down.';
 
@@ -456,14 +450,8 @@ $string['maincolordesc'] = 'Main colour for blocks and footer.';
 $string['footertextcolor'] = 'Footer text colour';
 $string['footertextcolordesc'] = 'The colour of the text in the footer, use html hex code.';
 
-$string['footerbackgroundcolor'] = 'Footer background colour';
-$string['footerbackgroundcolordesc'] = 'The background colour of the footer, use html hex code.';
-
 $string['footerbkcolor'] = 'Footer background colour';
 $string['footerbkcolordesc'] = 'Set the footer background colour.';
-
-$string['footertextcolor'] = 'Footer blocks text colour';
-$string['footertextcolordesc'] = 'Footer blocks text colour.';
 
 $string['footertextcolor2'] = 'Lower footer text colour';
 $string['footertextcolor2desc'] = 'Lower footer text colour.';
@@ -575,6 +563,7 @@ $string['dividingline2desc'] = 'The colour for the dividing line found in the fo
 
 $string['navbarborder'] = 'Navbar bottom border colour';
 $string['navbarborderdesc'] = 'Colour for the bottom of the navbar';
+
 $string['navbarhover'] = 'Navbar hover colour';
 $string['navbarhoverdesc'] = 'When hovering on a navigation item, the colour of the border of the navbar.';
 
@@ -614,16 +603,13 @@ $string['currentcolor'] = 'Current Course Section Highlight Colour';
 $string['currentcolordesc'] = 'Set the colour for the current course section highlight';
 
 $string['coursesectionheaderborderstyle'] = 'Course Section Header Border Style';
-$string['coursesectionheaderborderstyledesc'] = 'Set the style of the course section header border
-    (only bottom border is used as outer container also has border)';
+$string['coursesectionheaderborderstyledesc'] = 'Set the style of the course section header border (only bottom border is used as outer container also has border)';
 
 $string['coursesectionheaderbordercolor'] = 'Course Section Header Border Color';
-$string['coursesectionheaderbordercolordesc'] = 'Set the color of the course section header border
-    (only bottom border is used as outer container also has border)';
+$string['coursesectionheaderbordercolordesc'] = 'Set the color of the course section header border (only bottom border is used as outer container also has border)';
 
 $string['coursesectionheaderborderwidth'] = 'Course Section Header Border Width';
-$string['coursesectionheaderborderwidthdesc'] = 'Set the width of the course section header border
-    (only bottom border is used as outer container also has border)';
+$string['coursesectionheaderborderwidthdesc'] = 'Set the width of the course section header border (only bottom border is used as outer container also has border)';
 
 $string['coursesectionheaderborderradiustop'] = 'Course Header Section Border Radius Top';
 $string['coursesectionheaderborderradiustopdesc'] = 'Set the top radius of course section header borders (rounded corners)';
@@ -653,9 +639,6 @@ $string['fontnamedesc'] = 'Select the default font or <a href="https://www.googl
 
 $string['fontheadername'] = 'Headers font';
 $string['fontheadernamedesc'] = 'Select the default font or <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a> used in the text and blocks headers.';
-
-$string['fontheadercustom'] = 'Headers custom font name';
-$string['fontheadercustomdesc'] = 'Enter the header custom name font if you selected custom as a font name.';
 
 $string['fontcolor'] = 'Main font colour';
 $string['fontcolordesc'] = 'Set the colour of the font in the theme, use html hex code.';
@@ -710,35 +693,14 @@ $string['buttondesc'] = 'Alter the appearance of buttons used in this theme.';
 $string['buttonradius'] = 'Set Button Radius';
 $string['buttonradiusdesc'] = 'Higher radius = curved buttons, lower radius = square buttons';
 
-$string['buttonloginpadding'] = 'Set Padding for Log In Button';
-$string['buttonloginpaddingdesc'] = 'Higher number = bigger button';
-
-$string['buttonloginheight'] = 'Set Height for Login Button';
-$string['buttonloginheightdesc'] = 'Only effective if using a login form in the upper header';
-
-$string['buttonloginmargintop'] = 'Set Top Margin for Login Button';
-$string['buttonloginmargintopdesc'] = 'Allows spacing / position of login button to be altered';
-
 $string['buttoncolor'] = 'Button colour';
 $string['buttoncolordesc'] = 'The colour of the main buttons used throughout the site.';
-
-$string['buttonlogincolor'] = 'Login button colour';
-$string['buttonlogincolordesc'] = 'The colour of the login button.';
-
-$string['buttonloginhovercolor'] = 'Login button hover colour';
-$string['buttonloginhovercolordesc'] = 'The hover colour of the login button.';
-
-$string['buttonlogintextcolor'] = 'Login button text colour';
-$string['buttonlogintextcolordesc'] = 'The colour of text used on the login button.';
 
 $string['buttonhovercolor'] = 'Button colour (When hovering)';
 $string['buttonhovercolordesc'] = 'The colour that the button changes to when hovering over the button.';
 
 $string['buttontextcolor'] = 'Button text colour';
 $string['buttontextcolordesc'] = 'The colour of text used on buttons';
-
-$string['buttontextcolor'] = 'Button text colour';
-$string['buttontextcolordesc'] = 'The colour of the text buttons used throughout the site, use html hex code.';
 
 $string['editfont'] = 'Editing and Customize this page button font colour';
 $string['editfontdesc'] = 'Set the Editing and Customize this page button font colour';
@@ -750,6 +712,24 @@ $string['edittopmargin'] = 'Set top margin of editing buttons';
 
 // Login button.
 $string['logintextbutton'] = 'Log In';
+
+$string['buttonlogincolor'] = 'Login button colour';
+$string['buttonlogincolordesc'] = 'The colour of the login button.';
+
+$string['buttonloginhovercolor'] = 'Login button hover colour';
+$string['buttonloginhovercolordesc'] = 'The hover colour of the login button.';
+
+$string['buttonlogintextcolor'] = 'Login button text colour';
+$string['buttonlogintextcolordesc'] = 'The colour of text used on the login button.';
+
+$string['buttonloginpadding'] = 'Set Padding for Log In Button';
+$string['buttonloginpaddingdesc'] = 'Higher number = bigger button';
+
+$string['buttonloginheight'] = 'Set Height for Login Button';
+$string['buttonloginheightdesc'] = 'Only effective if using a login form in the upper header';
+
+$string['buttonloginmargintop'] = 'Set Top Margin for Login Button';
+$string['buttonloginmargintopdesc'] = 'Allows spacing / position of login button to be altered';
 
 
 // Header ***********************************************************.
@@ -788,6 +768,9 @@ $string['pageheaderheightdesc'] = 'Set the height of the main header area (conta
 $string['breadcrumbtitle'] = 'Breadcrumb course name';
 $string['breadcrumbtitledesc'] = 'Set the mode to display the course title in the breadcrumb.';
 
+$string['breadcrumbtitlefullname'] = 'Course Full Name';
+$string['breadcrumbtitleshortname'] = 'Course Short Name / Code';
+
 $string['socialorsearch'] = 'Use Search Box or Social Icons';
 $string['socialorsearchdesc'] = 'You can set the theme to either display social icons or a search box in the header. <br />
     <strong>You can set social icons under the "header social" settings page</strong>.';
@@ -799,11 +782,7 @@ $string['searchboxpaddingtop'] = 'Search box padding top';
 $string['searchboxpaddingtopdesc'] = 'Set padding above search box (if being used instead of social icons) <br />
     <strong>Note: padding for social icons can be set in the "Header Social" settings page</strong>.';
 
-$string['breadcrumbtitlefullname'] = 'Course Full Name';
-$string['breadcrumbtitleshortname'] = 'Course Short Name / Code';
-
 $string['usernav'] = 'Header User';
-$string['usernavheading'] = 'Customize dropdown menu for users profile.';
 
 $string['menusettings'] = 'Header Menus';
 $string['menusettingsheading'] = 'Customize menus in the upper header the header of this theme.';
@@ -882,7 +861,6 @@ $string['covfontcolordesc'] = 'Set the title font colour with the Coventry Tiles
 $string['covhidebutton'] = 'Coventry tiles course button';
 $string['covhidebuttondesc'] = 'Set this to hide the course button when Coventry Tiles is selected.';
 
-
 $string['frontpagerendererdefaultimage'] = 'Default course image';
 $string['frontpagerendererdefaultimagedesc'] = 'The default image to use when no course image is found, (only applies for Tiles w/ overlay)';
 
@@ -946,16 +924,15 @@ $string['alertprofilefield'] = 'Custom Profile Field Name=Value (optional)';
 $string['alertprofilefielddesc'] = 'Add access rule using for custom profile field eg: "usertype=student"';
 
 // Alert Access - Visibility.
-$string['alertaccessglobal'] = 'Visibile to everyone';
-$string['alertaccessusers'] = 'Visibile to logged in users';
-$string['alertaccessadmins'] = 'Visibile to administrators';
+$string['alertaccessglobal'] = 'Visible to everyone';
+$string['alertaccessusers'] = 'Visible to logged in users';
+$string['alertaccessadmins'] = 'Visible to administrators';
 $string['alertaccessprofile'] = 'Add custom profile field restriction';
 
 $string['alertaccess'] = 'Alert Visibility';
 $string['alertaccessdesc'] = 'Set access restriction type for alert box visibility. Note: if using "Add custom profile field restriction" you will need to add values for profile fields below.';
 
 // Social Wall Settings ********************************************.
-
 $string['socialwall'] = 'Social Wall';
 $string['socialwallheading'] = 'Social Wall Settings';
 $string['socialwalldesc'] = 'Customise the appearance of the <a href="https://moodle.org/plugins/format_socialwall">Social Wall Course Format</a> (if in use on your site)';
@@ -983,6 +960,9 @@ $string['socialwallactionlinkhovercolordesc'] = 'The color of action links when 
 
 
 // Mobile **********************************************************.
+$string['mobilesettings'] = 'Mobile Settings';
+$string['mobilesettingsheading'] = 'Control how your site looks on mobile devices';
+
 $string['layoutmobilesettings'] = 'Mobile Settings';
 $string['layoutmobilesettingsdesc'] = 'Alter settings for mobile devices';
 
@@ -1010,9 +990,6 @@ $string['hidebreadcrumbmobiledesc'] = 'Checking this option will remove the brea
 $string['hidepagefootermobile'] = 'Hide footer on mobile';
 $string['hidepagefootermobiledesc'] = 'Checking this option will remove the footer on mobile devices';
 
-$string['mobilesettings'] = 'Mobile Settings';
-$string['mobilesettingsheading'] = 'Control how your site looks on mobile devices';
-
 
 // Layout **********************************************************.
 $string['layoutsettings'] = 'Layout';
@@ -1021,7 +998,6 @@ $string['layoutsettingsheading'] = 'Control aspects of the site\'s layout';
 
 $string['blockside'] = 'Location of the blocks';
 $string['blocksidedesc'] = 'Control whether blocks appear on the left or right of the page';
-
 
 $string['blockicons'] = 'Block Icons';
 $string['blockiconsdesc'] = 'Set this to show block icons in the block header area.';
@@ -1066,8 +1042,10 @@ $string['dividingline2desc'] = 'The colour for the dividing line found in the fo
 
 $string['navbarborder'] = 'Navbar bottom border colour';
 $string['navbarborderdesc'] = 'Colour for the bottom of the navbar';
+
 $string['navbarhover'] = 'Navbar hover colour';
 $string['navbarhoverdesc'] = 'When hovering on a navigation item, the colour of the border of the navbar.';
+
 $string['showfooterblocks'] = 'Show footer blocks';
 $string['showfooterblocksdesc'] = 'Show / hide the four configurable footer blocks';
 
@@ -1080,18 +1058,18 @@ $string['breadcrumbtextcolordesc'] = 'Set the text colour of the breadcrumb.';
 $string['activebreadcrumb'] = 'Active breadcrumb background colour';
 $string['activebreadcrumbdesc'] = 'Set the background colour of the active breadcrumb colour, and remainder of the breadcrumb bar.';
 
+$string['breadcrumbseparator'] = 'Breadcrumb separator';
+$string['breadcrumbseparatordesc'] = 'Set the <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Font Awesome Icon</a> to be used as item separator in the breadcrumb. enter the icon name without the fa- prefix.';
+
+$string['breadcrumbhome'] = 'Breadcrumb home';
+$string['breadcrumbhomedesc'] = 'Display home breadcrumb as an icon or as a text.';
+
+$string['breadcrumbhometext'] = 'Text';
+$string['breadcrumbhomeicon'] = 'Icon';
+
 $string['menufontsize'] = 'Font size for navigation bar';
 $string['menufontsizedesc'] = 'Set the size of the font used in the main navigation bar.';
 
-$string['usernavheading'] = 'Customize the user navigation dropdown';
-$string['usernavdesc'] = 'Allows you to control all of the elements that appear in the user navigation dropdown.';
-$string['enablehomedesc'] = 'Display a link to the frontpage.';
-
-$string['enablehomeredirect'] = 'Enable Home redirect=0';
-$string['enablehomeredirectdesc'] = 'Enable redirect=0 on home. This is for use on sites where where My Home is default homepage. It prevents users clicking the Home link from being redirected back to My Home / Dashboard';
-
-$string['enablemyhomedesc'] = 'Display a link to {$a}';
-$string['enableeventsdesc'] = 'Display a link to the calendar';
 $string['enablemysitesdesc'] = 'Display a dropdown with a users courses';
 $string['enablethiscoursedesc'] = 'Display a dropdown with activities from the current course';
 
@@ -1156,11 +1134,11 @@ $string['newmenu2triggerdesc'] = 'Set a Top Menu Dropdown 2 trigger word. Font a
 $string['enablemenus'] = 'Enable Menus';
 $string['enablemenusdesc'] = 'It is recommended you leave this off if menus are not in use for preformance reasons';
 
-$string['topmenufontsize'] = 'Top Menu Font Size';
-$string['topmenufontsizedesc'] = 'Adjust the font size of the top menus';
-
 $string['disablemenuscoursepages'] = 'Disable Menus on Course Pages';
 $string['disablemenuscoursepagesdesc'] = 'Turning this option on will limit the display of top menus to site pages, the homepage, and dashboard (My Home) etc. and will not show in any course pages';
+
+$string['topmenufontsize'] = 'Top Menu Font Size';
+$string['topmenufontsizedesc'] = 'Adjust the font size of the top menus';
 
 $string['menuuseroverride'] = 'Allow user override';
 $string['menuuseroverridedesc'] = 'These settings can be used to give users control over where menus appear via a custom profile field. To use this option you will need to create a custom profile field in the "list" format with values in the corresponding order:
@@ -1208,6 +1186,7 @@ $string['toolsmenudesc'] = 'Add a drop down menu to the main navigation bar';
 $string['toolsmenutitle'] = 'Tools Menu Title';
 $string['toolsmenutitledefault'] = 'Tools';
 $string['toolsmenutitledesc'] = 'Add the title of the menu you would like to display in the main navigation bar';
+
 $string['toolsmenulabel'] = 'Tools Menu';
 
 $string['toolsmenufield'] = 'Custom Profile Field Name=Value (optional)';
@@ -1229,6 +1208,7 @@ http://localhost/moodle/course/search.php|Search Moodle|fa-search
 http://facebook.com/|Facebook|fa-facebook-square
 http://twitter.com/|Twitter|fa-twitter-square
 http://instagram.com|Instagram|fa-instagram
+http://example.com|Mi Web|fa-globe
 
 For reference you can find the full list of <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome Icons Here</a></pre>';
 
@@ -1263,7 +1243,6 @@ $string['analyticscountdesc'] = 'The number of analytics fields to show in the e
 $string ['analyticsprofilefield'] = 'Custom Profile Field Name=Value (optional)';
 $string ['analyticsprofilefielddesc'] = 'Add access rule using for custom profile field eg: "usertype=student"';
 
-
 // Custom CSS.
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
@@ -1275,6 +1254,7 @@ $string['genericsettingsdescription'] = 'Here you can find various settings to a
 $string['jssection'] = 'Javascript Section';
 $string['jssectiondesc'] = 'Add javascript code to the site.';
 
+<<<<<<< HEAD
 // Alternate Login Page
 $string['loginpagesettingsheading'] = 'Create your own customised login page';
 $string['loginpagesettingsdescription'] = 'Here you can find various settings to create your own login page.';
@@ -1282,3 +1262,7 @@ $string['loginpagesettingsdescription'] = 'Here you can find various settings to
 
 
 
+=======
+// Cache definitions.
+$string['cachedef_userdata'] = 'A session cache used to store user specific data.';
+>>>>>>> COVUNI-MASTER/master

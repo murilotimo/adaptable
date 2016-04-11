@@ -46,7 +46,9 @@ class theme_adaptable_core_renderer extends core_renderer {
      * @return string
      */
     protected function render_user_picture(\user_picture $userpicture) {
-        if ($this->page->pagetype == 'mod-forum-discuss' || $this->page->pagetype == 'course-view-socialwall' || $this->page->pagetype == 'site-index') {
+        if ($this->page->pagetype == 'mod-forum-discuss' ||
+        $this->page->pagetype == 'course-view-socialwall' ||
+        $this->page->pagetype == 'site-index') {
             $userpicture->size = 1;
         }
         return parent::render_user_picture($userpicture);
@@ -438,7 +440,7 @@ EOT;
         $messagelist = array();
 
         $newmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
-                            FROM {message}
+                           FROM {message}
                            WHERE useridto = :userid
                            AND useridfrom > 2
                            AND notification <> 1";
@@ -589,8 +591,10 @@ EOT;
             $PAGE->theme->settings->enabletickermy = 0;
         }
 
-        if ((!empty($PAGE->theme->settings->enableticker) && $PAGE->theme->settings->enableticker && $PAGE->bodyid == "page-site-index")
-            || ($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
+        if ((!empty($PAGE->theme->settings->enableticker) &&
+        $PAGE->theme->settings->enableticker &&
+        $PAGE->bodyid == "page-site-index") ||
+        ($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
             $msg = '';
             $tickercount = $PAGE->theme->settings->newstickercount;
 
@@ -848,10 +852,8 @@ EOT;
     }
 
     /**
-     * This renders the navbar.
-     * Uses bootstrap compatible html.
+     * Renders the breadcrumb navbar.
      *
-     * @param boolean $addbutton
      */
     public function page_navbar($addbutton = false) {
         global $PAGE;
@@ -874,23 +876,45 @@ EOT;
         return $retval;
     }
 
-    /**
-     * Returns html to render navigation bar
+    /*
+     * Render the breadcrumb
+     * @param array $items
+     * @param string $breadcrumbs
      *
-     * @return string
+     * return string
      */
     public function navbar() {
         $items = $this->page->navbar->get_items();
-        $breadcrumbs = array();
+        $breadcrumbseparator = get_config('theme_adaptable', 'breadcrumbseparator');
+        $breadcrumbs = "";
+
+        if (empty($items)) {
+            return '';
+        }
+
+        $i = 0;
+
         foreach ($items as $item) {
             $item->hideicon = true;
-            $breadcrumbs[] = $this->render($item);
+
+            if ($i++ == 0) {
+                if (get_config('theme_adaptable', 'breadcrumbhome') == 'icon') {
+                    $breadcrumbs = html_writer::link(new moodle_url('/'),
+                                   html_writer::tag('i', '', array('class' => 'fa fa-home fa-lg')));
+                } else {
+                    $breadcrumbs = html_writer::link(new moodle_url('/'), get_string('home'));
+                }
+                continue;
+            }
+
+            $breadcrumbs .= '<span class="separator"><i class="fa-'.$breadcrumbseparator.' fa"></i>
+                             </span><li>'.$this->render($item).'</li>';
         }
-        $divider = '<span class="divider">/</span>';
-        $listitems = '<li>'.join(" $divider</li><li>", $breadcrumbs).'</li>';
-        $title = '<span class="accesshide">'.get_string('pagepath').'</span>';
-        return $title . "<ul class=\"breadcrumb\">$listitems</ul>";
+
+        return '<ul class="breadcrumb">'.$breadcrumbs.'</ul>';
     }
+
+
 
     /**
      * Returns html to render footer
@@ -1031,20 +1055,26 @@ EOT;
                                 $branch->add(mb_strimwidth(format_string($course->fullname), 0,  $mysitesmaxlength, '...', 'utf-8'),
                                     new moodle_url('/course/view.php?id='.$course->id), '');
                             } else { // We want to check against array from profile field.
-                                if ((($overridetype == 'profilefields' || $overridetype == 'profilefieldscohort') && in_array($course->shortname, $overridelist))
-                                    || ($overridetype == 'strings' && $this->check_if_in_array_string($overridelist, $course->shortname))) {
-                                    $icon = '';
-                                    $branch->add($icon . mb_strimwidth(format_string($course->fullname), 0,  $mysitesmaxlength, '...', 'utf-8'),
-                                        new moodle_url('/course/view.php?id='.$course->id), '', 100);
+                                if ((($overridetype == 'profilefields' ||
+                                    $overridetype == 'profilefieldscohort') &&
+                                    in_array($course->shortname, $overridelist)) ||
+                                    ($overridetype == 'strings' &&
+                                    $this->check_if_in_array_string($overridelist, $course->shortname))) {
+                                        $icon = '';
+                                        $branch->add($icon . mb_strimwidth(format_string($course->fullname),
+                                                     0, $mysitesmaxlength, '...', 'utf-8'),
+                                                     new moodle_url('/course/view.php?id='.$course->id), '', 100);
                                 } else { // If not in array add to sub menu item.
                                     if (!isset($parent)) {
                                         $icon = '<i class="fa fa-history"></i> ';
                                         $parent = $branch->add($icon . $trunc =
-                                            rtrim(mb_strimwidth(format_string(get_string('pastcourses', 'theme_adaptable')), 0, $mysitesmaxlengthhidden)) . '...',
-                                                new moodle_url('#'), '', 1000);
+                                            rtrim(mb_strimwidth(format_string(get_string('pastcourses', 'theme_adaptable')),
+                                            0, $mysitesmaxlengthhidden)) . '...', new moodle_url('#'), '', 1000);
                                     }
-                                    $parent->add($trunc = rtrim(mb_strimwidth(format_string($course->fullname), 0, $mysitesmaxlengthhidden)) . '...',
-                                        new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
+                                    $parent->add($trunc = rtrim(mb_strimwidth(format_string($course->fullname),
+                                                 0, $mysitesmaxlengthhidden)) . '...',
+                                                 new moodle_url('/course/view.php?id='.$course->id),
+                                                format_string($course->shortname));
                                 }
                             }
                         }
@@ -1056,10 +1086,12 @@ EOT;
                         if (!$course->visible && $mysitesvisibility == 'includehidden') {
                             if (empty($parent)) {
                                 $parent = $branch->add($icon . $trunc =
-                                    rtrim(mb_strimwidth(format_string(get_string('hiddencourses', 'theme_adaptable')), 0, $mysitesmaxlengthhidden)) . '...',
+                                    rtrim(mb_strimwidth(format_string(get_string('hiddencourses', 'theme_adaptable')),
+                                        0, $mysitesmaxlengthhidden)) . '...',
                                         new moodle_url('#'), '', 2000);
                             }
-                            $parent->add($icon . $trunc = rtrim(mb_strimwidth(format_string($course->fullname), 0, $mysitesmaxlengthhidden)) . '...',
+                            $parent->add($icon . $trunc = rtrim(mb_strimwidth(format_string($course->fullname),
+                                0, $mysitesmaxlengthhidden)) . '...',
                                 new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
                         }
                     }
@@ -1118,7 +1150,7 @@ EOT;
             if ($access && !$this->hideinforum()) {
                 $branchtitle = get_string('helptitle', 'theme_adaptable');
                 $branchlabel = '<i class="fa fa-life-ring"></i>'.$branchtitle;
-                $branchurl   = new moodle_url($PAGE->theme->settings->enablehelp . '" target="' . $PAGE->theme->settings->helptarget);
+                $branchurl   = new moodle_url($PAGE->theme->settings->enablehelp.'" target="'.$PAGE->theme->settings->helptarget);
                 $branchsort  = 10003;
                 $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
             }
@@ -1138,7 +1170,7 @@ EOT;
             if ($access && !$this->hideinforum()) {
                 $branchtitle = get_string('helptitle2', 'theme_adaptable');
                 $branchlabel = '<i class="fa fa-life-ring"></i>'.$branchtitle;
-                $branchurl   = new moodle_url($PAGE->theme->settings->enablehelp2 . '" target="' . $PAGE->theme->settings->helptarget);
+                $branchurl   = new moodle_url($PAGE->theme->settings->enablehelp2.'" target="'.$PAGE->theme->settings->helptarget);
                 $branchsort  = 10003;
                 $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
             }
@@ -1229,7 +1261,8 @@ EOT;
 
         if ($display == 'custom') {
             $header = theme_adaptable_remove_site_fullname($PAGE->heading);
-            if (empty($header)) {
+
+            if (!empty($header)) {
                 $header = $PAGE->theme->settings->sitetitletext;
             }
             $PAGE->set_heading($header);
@@ -1244,7 +1277,7 @@ EOT;
 
         if ($display != 'disabled') {
             $retval .= $div;
-            $retval .= '<span>' . $PAGE->heading . '</span>';
+            $retval .= '<span>' . $PAGE->theme->settings->sitetitletext . '</span>';
             $retval .= '</div>';
         }
         return $retval;

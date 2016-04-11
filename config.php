@@ -111,6 +111,7 @@ $THEME->layouts = array(
         'file' => 'columns2.php',
         'regions' => array('side-post'),
         'defaultregion' => 'side-post',
+        'options' => array('nonavbar' => true),
     ),
     // Login page.
     'login' => array(

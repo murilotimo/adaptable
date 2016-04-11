@@ -152,6 +152,11 @@ h3.sectionname {
     background: [[setting:currentcolor]];
 }
 
+.course-content ul li.section.hidden .sectionname,
+.course-content ul li.section.hidden .content > div {
+    margin-right: 40px;
+}
+
 #page .covtiles.panel {
   background: transparent !important;
   border: 0px;

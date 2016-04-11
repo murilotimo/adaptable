@@ -199,17 +199,13 @@ div.signuppanel h2 {
     font-size: [[setting:topmenufontsize]];
 }
 
-#above-header .badge {
-    background-color: [[setting:msgbadgecolor]];
-}
-
 #page-header {
     border-bottom: 0px solid [[setting:maincolor]];
     clear: both;
     margin-bottom: 0px;
     background: transparent;
     padding-top: 0px;
-    min-height: [[setting:pageheaderheight]];
+    min-height: 82px;
     color: [[setting:headertextcolor2]];
 }
 
@@ -221,29 +217,19 @@ div.signuppanel h2 {
     max-width: 250px;
 }
 
+#titlecontainer {
+    padding-top: 10px;
+}
 
 #titlecontainer,
 #titlecontainer a,
-#titlecontainer span,
-#titlecontainer a p {
-    position:relative;
-    display: inline;
+#titlecontainer p {
     font-family: [[setting:fonttitlename]], sans-serif !important;
     font-size: [[setting:fonttitlesize]] !important;
     font-weight: [[setting:fonttitleweight]] !important;
     color: [[setting:fonttitlecolor]] !important;
-    padding-top: [[setting:sitetitlepaddingtop]];
-    padding-left: [[setting:sitetitlepaddingleft]];
+    padding-top: 10px;
     line-height: 100%;
-    width: [[setting:sitetitlemaxwidth]];
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-}
-
-#titlecontent {
-    padding-top:50px;
 }
 
 #titlecontainer a:hover {
@@ -261,18 +247,14 @@ div.signuppanel h2 {
     margin-left: 0px;
 }
 
-#coursetitle,
-#coursetitle a,
-#coursetitle a:hover,
-#coursetitle span {
-    position:relative;
-    font-family: [[setting:fonttitlenamecourse]], sans-serif !important;
-    color: [[setting:fonttitlecolorcourse]] !important;
-    font-size: [[setting:fonttitlesizecourse]] !important;
+#coursetitle {
+    font-family: [[setting:fonttitlename]], sans-serif !important;
+    color: [[setting:fonttitlecolor]] !important;
+    font-size: [[setting:fonttitlesize]] !important;
     line-height: normal;
-    font-weight: [[setting:fonttitleweightcourse]];
+    font-weight: [[setting:fonttitleweight]];
+    padding-left: 15px;
     padding-top: [[setting:coursetitlepaddingtop]];
-    padding-left: [[setting:coursetitlepaddingleft]];
     max-width: [[setting:coursetitlemaxwidth]];
     white-space: nowrap;
     overflow: hidden;
@@ -302,11 +284,11 @@ div.signuppanel h2 {
 .socialbox {
     padding-top: [[setting:socialpaddingtop]];
     padding-bottom: 5px;
+    font-size: [[setting:socialsize]];
 }
 
 .socialbox a {
     color: [[setting:headertextcolor2]];
-    font-size: [[setting:socialsize]];
     padding-left: 10px;
 }
 
@@ -363,6 +345,9 @@ a.usermendrop {
     padding-right: 3px;
 }
 
+.badge {
+    background-color: #ff0000;
+}
 
 .slidewrap {
     margin-top: [[setting:slidermargintop]];
@@ -459,7 +444,7 @@ span.fa-chevron-right.fa {
 
 #theinfo {
     background: [[setting:infoboxcolor]];
-    margin-bottom: 20px;
+/*    margin-bottom: 20px;*/
 }
 
 #theinfo-internal {
@@ -573,6 +558,14 @@ span.fa-chevron-right.fa {
   padding: 5px;
 }
 
+
+.breadcrumb li span.divider {
+    display: none !important;
+
+
+}
+
+
 #page-footer .logininfo {
     margin: 0px auto 0px;
     font-size: 90%;
@@ -676,36 +669,32 @@ langmenu a:hover {
 }
 
 
+/* Breadcrumb */
 .breadcrumb {
-  padding: 0px 0px 0px;
-  margin: 0 0;
+    padding: 5px;
+    margin: 0;
+    background-color: [[setting:breadcrumb]];
 }
 
 .breadcrumb li {
-  height: 35px;
-  background: [[setting:breadcrumb]];
+    text-shadow: none;
+    margin: 5px 0;
 }
 
-.breadcrumb li.lastli {
-    background: [[setting:activebreadcrumb]];
+.separator {
+    margin: 0 5px;
+}
+
+.separator i {
+    margin-left: 5px;
 }
 
 .breadcrumb li.lastli a span {
   display: none !important;
 }
 
-.breadcrumb li a, .breadcrumb li.lastli span, .breadcrumb li span.spnlink {
-    display: inline-block;
-    height: 26px;
-    padding: 9px 8px 0 25px;
-    position: relative;
-    color: [[setting:breadcrumbtextcolor]];
-    text-shadow: none;
-    font-size: 13px;
-    text-decoration: none !important;
-}
-
-.breadcrumb li.lastli a, .breadcrumb li.lastli span {
+.breadcrumb li.lastli a,
+.breadcrumb li.lastli span {
     color: [[setting:breadcrumbtextcolor]];
 }
 
@@ -714,7 +703,7 @@ langmenu a:hover {
     padding-right: 20px;
 }
 
-.breadcrumb li span.divider  {
+.breadcrumb li span.divider {
   display: none !important;
 }
 
@@ -827,7 +816,6 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
 .form-item .form-setting, .form-item .form-description, .mform .fitem .felement, #page-mod-forum-search .c1, .mform .fdescription.required, .userprofile dl.list dd, .form-horizontal .controls {
 /*    margin-left: 0;*/
     margin-left: 260px;
-    word-break:break-word;
 }
 
 #profilepic img, .userpicture {
@@ -887,7 +875,7 @@ input[type="radio"], input[type="checkbox"] {
 #region-main {
   margin-top: 0px;
   background: [[setting:regionmaincolor]];
-  padding: 0px;
+  padding: 4px;
 }
 
 #region-main #coursesearch .btn {
@@ -1007,7 +995,7 @@ input[type="radio"], input[type="checkbox"] {
         width: auto;
     }
 
-    .socialbox, .socialbox a {
+    .socialbox a {
         color: [[setting:headertextcolor2]];
         font-size: [[setting:socialsizemobile]];
         padding-left: 10px;
@@ -1299,7 +1287,7 @@ div.no-overflow, .yui3-datatable {
 
 .searchbox {
   float: right;
-  padding-top: [[setting:searchboxpaddingtop]];
+  padding-top: 32px;
 }
 
 .greybox {
@@ -1383,7 +1371,6 @@ div.no-overflow, .yui3-datatable {
 
     .userprofile dl.list dd {
         margin-left: 120px !important;
-        word-break:break-all;
     }
 }
 
@@ -1475,7 +1462,6 @@ div.questionbankwindow.block {
   text-align: center;
 }
 
-.coursebox.hover .summary b,
 .coursebox.hover .summary {
   min-height: 50px;
   overflow: auto;
@@ -1488,6 +1474,10 @@ div.questionbankwindow.block {
   display: none;
 }
 
+.coursebox.hover .summary p {
+  color: [[setting:rendereroverlayfontcolor]] !important;
+}
+
 .coursebox.panel.hover .panel-body:hover .coursebox-content h3 a {
   color: [[setting:rendereroverlayfontcolor]] !important;
 }
@@ -1497,9 +1487,10 @@ div.questionbankwindow.block {
 }
 
 .coursebox.hover .teachers {
-  text-align: left;
-  padding-top: 2px;
-  padding-left: 2px;
+    text-align: left;
+    padding-top: 2px;
+    padding-left: 2px;
+    color: [[setting:rendereroverlayfontcolor]] !important;
 }
 
 .coursebox.hover:hover .summary {
@@ -1609,11 +1600,6 @@ line-height: normal;
     margin-top: 10px;
 }
 
-.gradingform_guide .criterion .description {
-    width: 100%;
-    padding: 10px 5px 10px 5px;
-}
-
 .footer-inner .pull-right {
     text-align: right;
 }
@@ -1700,6 +1686,7 @@ line-height: normal;
   border-top: 0px;
 }
 
+<<<<<<< HEAD
 /* Alternate Login Page Styles */
 #alt_login .row-fluid.marketrow_b {
     margin-top: 20px;
@@ -1902,3 +1889,10 @@ top: 0px;
 }
 
 /* End Alternate Login Page Styles */
+=======
+/* Fix glossary print option */
+#page-mod-glossary-view .glossarycontrol {
+    margin: -40px 5px;
+}
+
+>>>>>>> COVUNI-MASTER/master
