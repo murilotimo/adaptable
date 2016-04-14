@@ -50,6 +50,30 @@ function theme_adaptable_process_css($css, $theme) {
     }
     $css = theme_adaptable_set_customcss($css, $customcss);
 
+    // Set the login page background colour.
+    $loginbackgroundcolor = $theme->settings->loginbackgroundcolor;
+    $css = theme_adaptable_set_loginbackgroundcolor($css, $loginbackgroundcolor);
+
+    // Set the login header background colour.
+    $loginheadercolor = $theme->settings->loginheadercolor;
+    $css = theme_adaptable_set_loginheadercolor($css, $loginheadercolor);
+
+    // Set the login page background image.
+    $loginbackgroundimage = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');
+    $css = theme_adaptable_set_loginbackgroundimage($css, $loginbackgroundimage);
+
+    // Set the login page background image opacity.
+    $loginopacity = $theme->settings->loginopacity;
+    $css = theme_adaptable_set_loginopacity($css, $loginopacity);
+
+    // Set the login logo image.
+    $loginlogo = $theme->setting_file_url('loginlogo', 'loginlogo');
+    $css = theme_adaptable_set_loginlogo($css, $loginlogo);
+
+    // Set the box outer padding.
+    $boxouterpadding = $theme->settings->boxouterpadding;
+    $css = theme_adaptable_set_boxouterpadding($css, $boxouterpadding);
+
     // Define the default settings for the theme incase they've not been set.
     $defaults = array(
         '[[setting:linkcolor]]' => '#009688',
@@ -205,6 +229,10 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:socialwallbordercolor]]' => '#009688',
         '[[setting:socialwallactionlinkcolor]]' => '#009688',
         '[[setting:socialwallactionlinkhovercolor]]' => '#009688',
+        '[[setting:loginbackgroundcolor]]' => '#DDD',
+        '[[setting:loginopacity]]' => '1',
+        '[[setting:loginheadercolor]]' => '#FFF',
+        '[[setting:boxouterpadding]]' => 0,
     );
 
     // Get all the defined settings for the theme and replace defaults.
@@ -509,3 +537,74 @@ function theme_adaptable_remove_site_fullname($heading) {
 
     return $header;
 }
+
+// Custom Login
+function theme_adaptable_set_loginbackgroundimage($css, $loginbackgroundimage) {
+    global $CFG;
+    $tag = '[[setting:loginbackgroundimage]]';
+    if (!($loginbackgroundimage)) {
+        $replacement = 'none';
+    } else {
+        $replacement = 'url(\'' . $loginbackgroundimage . '\')';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+ }
+
+ function theme_adaptable_set_loginopacity($css, $loginopacity) {
+    global $CFG, $SITE, $PAGE;
+    $tag = '[[setting:loginopacity]]';
+    if (!($loginopacity)) {
+        $replacement = 1;
+    } else {
+        $replacement = $loginopacity;
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+ function theme_adaptable_set_boxouterpadding($css, $boxouterpadding) {
+    global $CFG, $SITE, $PAGE;
+    $tag = '[[setting:boxouterpadding]]';
+    if (!($boxouterpadding)) {
+        $replacement = 0;
+    } else {
+        $replacement = $boxouterpadding;
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_adaptable_set_loginbackgroundcolor($css, $loginbackgroundcolor) {
+    global $CFG, $SITE, $PAGE;
+    $tag = '[[setting:loginbackgroundcolor]]';
+    $replacement = $loginbackgroundcolor;
+    if (is_null($replacement)) {
+        $replacement = '#DDD';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_adaptable_set_loginheadercolor($css, $loginheadercolor) {
+    global $CFG, $SITE, $PAGE;
+    $tag = '[[setting:loginheadercolor]]';
+    $replacement = $loginheadercolor;
+    if (is_null($replacement)) {
+        $replacement = '#FFF';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
+function theme_adaptable_set_loginlogo($css, $loginlogo) {
+    global $CFG;
+    $tag = '[[setting:loginlogo]]';
+    if (!($loginlogo)) {
+        $replacement = 'none';
+    } else {
+        $replacement = 'url(\'' . $loginlogo . '\')';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+ }

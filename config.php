@@ -24,6 +24,8 @@
  *
  */
 
+$customloginenabled = get_config('theme_adaptable', 'customloginenabled') . '.php';
+
 global $PAGE;
 if ($PAGE->pagetype == 'site-index') {
     $regions = array('side-post', 'middle', 'frnt-footer', 'frnt-market-a', 'frnt-market-b', 'frnt-market-c', 'frnt-market-d',
@@ -113,7 +115,7 @@ $THEME->layouts = array(
     ),
     // Login page.
     'login' => array(
-        'file' => 'columns1.php',
+        'file' => $customloginenabled,
         'regions' => array(),
         'options' => array('langmenu' => true, 'nonavbar' => true),
     ),

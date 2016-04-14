@@ -1478,8 +1478,6 @@ div.questionbankwindow.block {
   color: [[setting:rendereroverlayfontcolor]] !important;
 }
 
-
-
 .coursebox.panel.hover .panel-body:hover .coursebox-content h3 a {
   color: [[setting:rendereroverlayfontcolor]] !important;
 }
@@ -1489,9 +1487,10 @@ div.questionbankwindow.block {
 }
 
 .coursebox.hover .teachers {
-  text-align: left;
-  padding-top: 2px;
-  padding-left: 2px;
+    text-align: left;
+    padding-top: 2px;
+    padding-left: 2px;
+    color: [[setting:rendereroverlayfontcolor]] !important;
 }
 
 .coursebox.hover:hover .summary {
@@ -1687,8 +1686,211 @@ line-height: normal;
   border-top: 0px;
 }
 
+<<<<<<< HEAD
+/* Alternate Login Page Styles */
+#alt_login .row-fluid.marketrow_b {
+    margin-top: 20px;
+}
+ 
+#alt_login .alert {
+position: relative;
+z-index: 1;
+}
+ 
+#alt_login #region-main {
+padding-top:0px;
+}
+ 
+#alt_login .box1 a, #alt_login .box2 a, #alt_login .box3 a, #alt_login .box4 a {
+text-decoration: none;
+}
+ 
+#alt_login .first {
+min-height: 0px !important;
+}
+ 
+#alt_login div {
+  -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+ 
+#alt_login .sitelogo {
+width: 100%;
+}
+ 
+#alt_login textarea[cols], #alt_login input[size] {
+    width: 100%;
+}
+ 
+@media (max-width:480px) {
+#alt_login .loginform {
+width: calc(100% - 20px) !important;
+}
+#alt_login #logocontainer {
+    width: calc(100% - 20px) !important;
+}
+}
+ 
+#alt_login .floatleft {
+text-align: left;
+width: calc(50% - 15px)
+}
+ 
+#alt_login [class*="span"] {
+margin-left: 0px;
+}
+ 
+#alt_login input[type="checkbox"] {
+margin-left: 0px;
+}
+ 
+#alt_login .extra {
+    text-align: left;
+    margin-top: -25px;
+color: #777;
+}
+ 
+#alt_login .extra a {
+color: #00AFFF;
+}
+ 
+ 
+#alt_login input[type="submit"] {
+    width: calc(50% - 10px);
+    margin: 0;
+    height: 70px;
+    margin-top: -112px !important;
+    border-radius: 4px;
+    box-shadow: none;
+}
+ 
+#alt_login .layoutb {
+margin-left: 0px !important;
+margin-right:0px !important;
+}
+ 
+#alt_login .layoutc {
+margin: 0px !important;
+position: fixed;
+}
+ 
+@media (min-width:769px) {
+#alt_login .marketrow_a {
+margin-top:200px !important;
+}
+#alt_login .span3 {
+width: 25%;
+}
+#alt_login .layoutc {
+width: 50% !important;
+height: calc(50% - 57.5px) !important;
+}
+#alt_login .first {
+padding: [[setting:boxouterpadding]]px;
+}
+.span6.box1.layoutc {
+left: 0px;
+}
+.span6.box2.layoutc {
+right: 0px;
+}
+.span6.box3.layoutc {
+left: 0px;
+bottom:0px;
+}
+.span6.box4.layoutc {
+right: 0px;
+bottom:0px;
+}
+}
+ 
+@media (max-width: 768px) {
+#alt_login .customalert {
+display: inherit !important;
+}
+#alt_login .layoutc {
+position:initial !important;
+}
+}
+ 
+#alt_login div[role="main"] {
+display: none;
+}
+ 
+#alt_login .marketrow {
+margin-top: 0px;
+}
+ 
+#alt_login #marketblocks {
+margin-bottom: 0px;
+}
+ 
+#alt_login #marketblocks .span12 {
+    margin: 0;
+}
+ 
+#alt_login #page-content {
+padding: 0;
+}
+ 
+#alt_login .container {
+position: relative;
+}
+ 
+#alt_login .header {
+background: [[setting:loginheadercolor]];
+position: relative;
+z-index:1;
+}
+#alt_login #logocontainer {
+width: 400px;
+margin:20px 10px 20px 10px;
+float: left;
+}
+ 
+#alt_login .loginform {
+text-align: right;
+padding: 10px;
+float: right;
+width:295px;
+-webkit-transition: width .5s ease-in-out;
+-moz-transition: width .5s ease-in-out;
+-o-transition: width .5s ease-in-out;
+transition: width .5s ease-in-out;
+}
+ 
+#alt_login .loginform p {
+display: inline;
+}
+ 
+#alt_login #bgcolor {
+background-color: [[setting:loginbackgroundcolor]];
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0px;
+}
+ 
+#alt_login #bgtrans {
+background-image: [[setting:loginbackgroundimage]];
+-moz-background-image: [[setting:loginbackgroundimage]];
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+content: "";
+opacity: [[setting:loginopacity]];
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0px;
+}
+
+/* End Alternate Login Page Styles */
+
 /* Fix glossary print option */
 #page-mod-glossary-view .glossarycontrol {
     margin: -40px 5px;
 }
-
